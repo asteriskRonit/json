@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<script type="text/javascript" src="list.json"></script>
+    <script type="text/javascript" src="read.js">-->
+    </script>
+</head>
+
+<body>
+    <h1>students list</h1>
+    <ol>
+
+    </ol>
+    <script>
+        const listEl = document.querySelector('ol');
+        fetch('./list.json')
+            .then((response) => response.json())
+            .then(data => {
+                data.forEach(element => {
+                    listEl.insertAdjacentHTML('beforeend', `<li>${element.firstName}</li>`);
+                });
+            });
+    </script>
+
+</body>
+
+</html>
